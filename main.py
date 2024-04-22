@@ -15,6 +15,7 @@ result_file = os.path.join(base_dir, 'result.csv')
 
 if not os.path.exists(target_dir):
     print('targets folder does not exist. Please create a folder named "targets" and put the xlsx files in it.')
+    input("Press ENTER key to continue...")
     exit()
 
 # targets 폴더 내의 모든 xlsx 파일 찾기
@@ -22,6 +23,7 @@ files = [os.path.join(target_dir, file) for file in os.listdir(target_dir) if fi
 
 if len(files) == 0:
     print('there is no xlsx file in the targets folder. Please put the xlsx files in the targets folder.')
+    input("Press ENTER key to continue...")
     exit()
 
 if os.path.exists(result_file):
@@ -38,6 +40,7 @@ if os.path.exists(result_file):
         pass
     else:
         print('cancel the program.')
+        input("Press ENTER key to continue...")
         exit()
 
 print ('')
@@ -59,3 +62,4 @@ for file in files:
 
 print ('')
 print('## All files are processed!')
+input("Press ENTER key to continue...")
