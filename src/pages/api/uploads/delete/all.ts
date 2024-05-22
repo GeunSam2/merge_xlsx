@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs-extra';
 
 const deleteHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-    await fs.remove(`./uploads`);
+    await fs.remove(`/tmp/uploads`);
     return res.status(200).json({ message: 'All files deleted successfully' });
 }
 

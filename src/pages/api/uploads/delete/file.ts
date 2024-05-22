@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 
 const deleteHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const { fileName} = req.query;
-    const filePath = `./uploads/${fileName}`;
+    const filePath = `/tmp/uploads/${fileName}`;
 
     await fs.remove(filePath);
     res.status(200).json({ message: 'File deleted successfully' });

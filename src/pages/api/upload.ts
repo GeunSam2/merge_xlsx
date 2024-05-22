@@ -1,11 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import formidable, { Files, Fields } from 'formidable';
 import fs from 'fs-extra';
-import path from 'path';
 
 // 파일 업로드 함수
 const handleFileUpload = (req: NextApiRequest, res: NextApiResponse) => {
-  const uploadDir = path.join(process.cwd(), '/uploads');
+  const uploadDir = '/tmp/uploads'
   fs.ensureDirSync(uploadDir);
 
   const form = formidable({

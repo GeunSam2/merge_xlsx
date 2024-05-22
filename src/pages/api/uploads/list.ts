@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
-import path from 'path';
 
-const uploadDir = path.join(process.cwd(), '/uploads');
+const uploadDir = '/tmp/uploads';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {

@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
-import path from 'path';
 
-const filePath = path.join(process.cwd(), '/result/result.csv');
+const filePath = '/tmp/result/result.csv';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {

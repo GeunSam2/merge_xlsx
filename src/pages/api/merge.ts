@@ -1,14 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs-extra';
 import path from 'path';
-// import { parse } from 'csv-parse';
 import XLSX from 'xlsx';
 import { stringify } from 'csv-stringify';
 
-const uploadDir = path.join(process.cwd(), '/uploads');
-const resultDir = path.join(process.cwd(), '/result');
-const resultFile = path.join(resultDir, 'result.csv');
-fs.ensureDirSync(resultDir);
+// const resultDir = path.join(process.cwd(), '/result');
+// const resultFile = path.join(resultDir, 'result.csv');
 
 // handler.post((req: MergeRequest, res: NextApiResponse) => {
 //   const { filesToMerge } = req.body;
@@ -43,6 +40,10 @@ fs.ensureDirSync(resultDir);
 // });
 
 const handleMerge = async (_: NextApiRequest, res: NextApiResponse) => {
+  const uploadDir = '/tmp/uploads';
+  const resultDir = '/tmp/result';
+  const resultFile = '/tmp/result/result.csv';
+  fs.ensureDirSync(resultDir);
   const filesToMerge = fs.readdirSync(uploadDir)
 
   if (!filesToMerge || filesToMerge.length === 0) {
