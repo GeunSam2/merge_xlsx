@@ -7,7 +7,7 @@ import path from 'path';
 const handleFileUpload = (req: NextApiRequest, res: NextApiResponse) => {
   const uploadDir = path.join(process.cwd(), '/uploads');
   fs.ensureDirSync(uploadDir);
-  
+
   const form = formidable({
     uploadDir: uploadDir,
     keepExtensions: true,
@@ -35,6 +35,7 @@ const handleFileUpload = (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const apiHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log('req.method:', req.method)
   if (req.method === 'POST') {
     handleFileUpload(req, res);
   } else {
