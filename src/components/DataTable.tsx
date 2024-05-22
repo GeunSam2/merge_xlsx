@@ -1,11 +1,23 @@
 import React from 'react';
 import Papa from 'papaparse';
 
-const DataTable = ({ data }: { data: string }) => {
-  const dummy = Papa.parse(data, { header: true });
+interface DataTableProps {
+  data: string;
+}
+
+interface ParsedData {
+  [key: string]: string;
+}
+
+const DataTable: React.FC<DataTableProps> = ({ data }) => {
+  const dummy = Papa.parse<ParsedData>(data, { header: true });
   const parsedData = dummy.data;
 
   console.log(parsedData);
+
+  if (!parsedData.length) {
+    return <div>No data available</div>;
+  }
 
   const headers = Object.keys(parsedData[0]);
 
