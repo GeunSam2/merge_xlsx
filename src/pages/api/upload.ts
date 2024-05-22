@@ -3,16 +3,15 @@ import formidable, { Files, Fields } from 'formidable';
 import fs from 'fs-extra';
 import path from 'path';
 
-const uploadDir = path.join(process.cwd(), '/uploads');
-
-fs.ensureDirSync(uploadDir);
-
 // 파일 업로드 함수
 const handleFileUpload = (req: NextApiRequest, res: NextApiResponse) => {
+  const uploadDir = path.join(process.cwd(), '/uploads');
+  fs.ensureDirSync(uploadDir);
+  
   const form = formidable({
     uploadDir: uploadDir,
     keepExtensions: true,
-    maxFileSize: 100 * 1024 * 1024, // 예: 최대 파일 크기 2MB
+    maxFileSize: 100 * 1024 * 1024, // 예: 최대 파일 크기 100MB
     multiples: true, // 여러 파일 업로드를 허용
     filename: function (name, ext, part, form) {
       const { originalFilename, mimetype } = part;
