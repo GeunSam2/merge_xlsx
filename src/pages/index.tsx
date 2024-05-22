@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import DataTable from '../components/DataTable';
+import Link from 'next/link'
 
 interface UploadedFile {
   filename: string;
@@ -198,7 +199,7 @@ export default function Home() {
         <div className='mt-8'>
           <div className='flex'>
             <h2 className="text-xl font-semibold flex-grow">합체 결과</h2>
-            <a href="/api/result/download" className="ml-2 px-2 py-1 bg-blue-500 text-white rounded">csv 다운로드</a>
+            <Link href="/api/result/download" className="ml-2 px-2 py-1 bg-blue-500 text-white rounded">csv 다운로드</Link>
             <button onClick={handleDeleteResult} className="ml-2 px-2 py-1 bg-red-500 text-white rounded">결과 초기화</button>
 
           </div>
