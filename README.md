@@ -4,4 +4,4 @@ merge multiple xlsx files.
 
 ## dependency
 
-- python 3.8
+- node : v20.10.0 (TESTED)
