@@ -153,7 +153,7 @@ export default function Home() {
               onDragLeave={handleDragLeave}
               className={`w-full min-h-32 h-full border-2 ${isDragging ? 'border-blue-500 bg-blue-100' : 'border-dashed border-gray-300'} rounded-md flex justify-center items-center`}
             >
-              <p className="text-gray-500">합치고 싶은 파일들을 여기에 드래그 & 드랍 해주쇼</p>
+              <p className="text-gray-500">합치고 싶은 파일들을 여기에 드래그 & 드랍 해주쇼!!!!!</p>
               <input ref={fileInput}  type="file" multiple onChange={handleFileChange} className="hidden" />
             </div>
           </form>
